@@ -1,0 +1,9 @@
+body {
+    color: #FF4500;
+    font-family: Purisa, Arial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
