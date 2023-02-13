@@ -9,15 +9,19 @@
 </head>
 <link rel="stylesheet" href="styles.css">
 <body>
-<h1>Make your choice</h1>
-<div>
-    <button type="button" onclick=window.open('http://localhost:8080/read')>READ</button>
-    <button type="button" onclick=window.open('http://localhost:8080/write')>WRITE</button>
-</div>
-<h3>(hints below)</h3>
-<img src="favicon.ico" alt="Здесь изображение">
-<h2>READ: user=read password=read</h2>
-<h2>WRITE: user=write password=write</h2>
-<h2>READ&WRITE: user=rw password=rw</h2>
+<h1>ПРИВЕТ</h1>
+<h4 th:text="${user1}"></h4>
+<h4 th:text="${user2}"></h4>
+<h4 th:text="${user3}"></h4>
+<h4 th:text="${user4}"></h4>
+<h1>ВЫБЕРИ КУДА ИДТИ ДАЛЬШЕ?</h1>
+<button onclick="window.open('../read', '_self')">/read @Secured("ROLE_READ")</button>
+<button onclick="window.open('../hello', '_self')">/hello @RolesAllowed({"ROLE_WRITE", "ROLE_READ"})</button>
+<button onclick="window.open('../write', '_self')">/write @PreAuthorize("hasRole('ROLE_WRITE')")</button>
+<button onclick="window.open('../write-delete', '_self')">/write-delete @PreAuthorize("hasAnyRole('ROLE_DELETE','ROLE_WRITE')"))</button>
+<button onclick="window.open('../what-is-your-name', '_self')">/whatisyourname @PreAuthorize("isAuthenticated()"))</button>
+<img src="favicon.ico" alt="Здесь изображение" style="height:100px;width:100px">
+<button style="font-size:30px"
+        onclick="window.open('../logout', '_self')">LOGOUT</button>
 </body>
 </html>
